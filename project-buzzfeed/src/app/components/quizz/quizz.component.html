@@ -3,16 +3,16 @@
     <img src="assets/imgs/logo.png" alt="LogoBuzzFeed">
     <h3>{{title}}</h3>
   </div>
-  <div class="questions">
+  <div *ngIf=!finished class="questions">
     <h3>{{questionSelected.question}}</h3>
   </div>
-  <div class="options">
+  <div *ngIf=!finished class="options">
     <button *ngFor="let option of questionSelected.options; let i = index" (click)="playerChoose(option.alias)" class="btn-option">
       {{option.name}}
     </button>
   </div>
   <div *ngIf=finished class="results">
     <h1>O seu resultado é: </h1>
-    <p>Resposta selecionada</p>
+    <p>{{answersSelected}}</p>
   </div>
 </div>
